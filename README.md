@@ -44,6 +44,6 @@ Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado 
 ## Observações
 - Algumas funcionalidades na documentação foram descotinuadas na versao 5 do Strapi, então tive que usar a solução alternativa que estava na documentação
 
-- No teste foi pedido LESS CODE, então, aproveitei a estreutura inicial que o SDK cria, tanto do projeto, quanto dos plugins, com poucas alterações
+- No teste foi pedido LESS CODE, então, aproveitei a estrutura inicial que o SDK cria, tanto do projeto, quanto dos plugins, com poucas alterações
 
 - Toda a API e Entidades foram criadas pelo painel admin
