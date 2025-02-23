@@ -10,7 +10,7 @@ Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado 
 ## Como Rodar o Projeto
 
 1. Clone o repositório.
-2. Execute `npm install` para instalar as dependências.
+2. Execute `npm install` para instalar as dependências. O processo de instalação já realiza automaticamente a build do plugin.
 3. Inicie o projeto com `npm run develop`.
 
 ## Estrutura do Projeto
@@ -21,7 +21,6 @@ Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado 
 ### Modal de Comentários
 ![Modal de Comentários](./assets/dialog.png)
 
-
 - **Post**: Representa um post criado por um autor.
 - **Comment**: Representa um comentário feito em um post.
 - Relacionamento: Um post possui vários comentários.
@@ -30,10 +29,16 @@ Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado 
 
 - Ao editar um post, os comentários são exibidos em uma modal com lista paginada.
 - Paginação numérica com limite de 5 comentários por página.
+- Apenas os comentários publicados são exibidos, ignorando rascunhos.
 
 ## Endpoints da API
 
-- **GET** `/api/post-comments/comments`: Retorna os comentários relacionados a um post. Parâmetros: `postId` (obrigatório), `page`, `pageSize`.
+- **GET** `/api/post-comments/comments`: Retorna os comentários relacionados a um post.  
+  - **Parâmetros:**  
+    - `postId` (obrigatório): Identificador do post.
+    - `page` (opcional): Página atual da listagem. Padrão: 1.
+    - `pageSize` (opcional): Quantidade de comentários por página. Padrão: 5.
+  - **Filtro:** Somente comentários com o campo `publishedAt` preenchido são retornados.
 
 ## Referências
 
@@ -42,8 +47,8 @@ Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado 
 - [Strapi API Rest](https://docs.strapi.io/dev-docs/api/rest)
 
 ## Observações
-- Algumas funcionalidades na documentação foram descotinuadas na versao 5 do Strapi, então tive que usar a solução alternativa que estava na documentação
-
-- No teste foi pedido LESS CODE, então, aproveitei a estrutura inicial que o SDK cria, tanto do projeto, quanto dos plugins, com poucas alterações
-
-- Toda a API e Entidades foram criadas pelo painel admin
+- Algumas funcionalidades na documentação foram descontinuadas na versão 5 do Strapi, então utilizei soluções alternativas conforme a documentação oficial.
+- No teste foi solicitado **LESS CODE**, então utilizei a estrutura inicial gerada pelo SDK do Strapi, com o mínimo de alterações necessárias.
+- Todas as APIs e entidades foram criadas pelo painel admin do Strapi.
+- O filtro de comentários agora exibe apenas os registros publicados (`publishedAt` != null), evitando duplicidades causadas por rascunhos.
+- O script de build do plugin é executado automaticamente após o comando `npm install`, não sendo necessário rodar manualmente.

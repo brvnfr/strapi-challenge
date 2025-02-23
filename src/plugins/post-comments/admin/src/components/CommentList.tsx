@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Button } from '@strapi/design-system';
 
 interface Comment {
-  id: number;
+  documentId: string;
   content: string;
   createdAt: string;
   user: {
@@ -25,7 +25,7 @@ const CommentList: React.FC<CommentListProps> = ({ comments, pagination, fetchCo
       {comments.map((comment, index) => (
         console.log("comment",comment),
         <Box
-          key={comment.id}
+          key={comment.documentId}
           marginBottom={index === comments.length - 1 ? 0 : 4}
           padding={3}
           borderRadius="8px"

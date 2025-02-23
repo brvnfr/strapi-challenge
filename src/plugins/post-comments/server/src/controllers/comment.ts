@@ -10,7 +10,10 @@ export default factories.createCoreController('api::comment.comment', ({ strapi 
       }
 
       const comments = await strapi.db.query('api::comment.comment').findMany({
-        where: { post: { documentId: postId } },
+        where: {
+          post: { documentId: postId },
+          publishedAt: { $notNull: true }
+        },
         populate: ['user'],
         limit: parseInt(pageSize, 10),
         offset: (parseInt(page, 10) - 1) * parseInt(pageSize, 10),
@@ -18,7 +21,10 @@ export default factories.createCoreController('api::comment.comment', ({ strapi 
       });
 
       const total = await strapi.db.query('api::comment.comment').count({
-        where: { post: { documentId: postId } },
+        where: {
+          post: { documentId: postId },
+          publishedAt: { $notNull: true }
+        },
       });
 
       ctx.body = {
