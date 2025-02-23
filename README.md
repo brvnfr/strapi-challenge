@@ -45,6 +45,7 @@ Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado 
 - [Strapi Plugins Admin Panel API](https://docs.strapi.io/dev-docs/plugins/admin-panel-api)
 - [Strapi Plugins Content Manager APIs](https://docs.strapi.io/dev-docs/plugins/content-manager-apis)
 - [Strapi API Rest](https://docs.strapi.io/dev-docs/api/rest)
+- [Strapi Design System](https://design-system.strapi.io/)
 
 ## Observações
 - Algumas funcionalidades na documentação foram descontinuadas na versão 5 do Strapi, então utilizei soluções alternativas conforme a documentação oficial.
