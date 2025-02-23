@@ -1,24 +1,49 @@
-Este desafio tem como objetivo avaliar sua capacidade de trabalhar com o Strapi para criar uma API simples com duas tabelas: post e comment. Além disso, você deve personalizar o painel administrativo para exibir os comentários relacionados ao post de forma paginada usando um plugin strapi.
+# Projeto Strapi Comments Plugin
 
-# Requisitos
+Este projeto consiste em uma API criada com Strapi v5 e um plugin personalizado para exibir comentários relacionados a posts no painel administrativo.
 
-Criar uma API no Strapi com as seguintes tabelas:
+## Versionamento
 
-**Post**: representa um post de um autor(usuário).
+- Node.js versão 22.12.0
+- Strapi v5
 
-**Comment**: representa um comentário de um post, feito por um usuário com data e hora.
+## Como Rodar o Projeto
 
-Configurar relacionamentos adequados entre as tabelas.
+1. Clone o repositório.
+2. Execute `npm install` para instalar as dependências.
+3. Inicie o projeto com `npm run develop`.
 
-No painel administrativo, ao editar um post, exibir os comentários relacionados de forma paginada e colocar uma modal para ver os detalhes do comentário.
+## Estrutura do Projeto
 
-# Pontuação
+### Botão Ver Comentários
+![Botão Ver Comentários](./assets/btn.png)
 
-- Tabelas bem relacionadas
-- Código simples, less code
-- Documentação e setup
-- Velocidade da entrega
+### Modal de Comentários
+![Modal de Comentários](./assets/dialog.png)
 
-# Entrega
 
-Deverá criar um fork com um pull request para este repositório.
+- **Post**: Representa um post criado por um autor.
+- **Comment**: Representa um comentário feito em um post.
+- Relacionamento: Um post possui vários comentários.
+
+## Funcionalidades do Plugin
+
+- Ao editar um post, os comentários são exibidos em uma modal com lista paginada.
+- Paginação numérica com limite de 5 comentários por página.
+
+## Endpoints da API
+
+- **GET** `/api/post-comments/comments`: Retorna os comentários relacionados a um post. Parâmetros: `postId` (obrigatório), `page`, `pageSize`.
+
+## Referências
+
+- [Strapi Plugins Admin Panel API](https://docs.strapi.io/dev-docs/plugins/admin-panel-api)
+- [Strapi Plugins Content Manager APIs](https://docs.strapi.io/dev-docs/plugins/content-manager-apis)
+- [Strapi API Rest](https://docs.strapi.io/dev-docs/api/rest)
+
+## Observações
+- Algumas funcionalidades na documentação foram descotinuadas na versao 5 do Strapi, então tive que usar a solução alternativa que estava na documentação
+
+- No teste foi pedido LESS CODE, então, aproveitei a estreutura inicial que o SDK cria, tanto do projeto, quanto dos plugins, com poucas alterações
+
+- Toda a API e Entidades foram criadas pelo painel admin
